@@ -17,12 +17,14 @@ class User:
             "Gold Points - " + str(self.gold_card_points)
         ]
         print(info)
+        return self
 
     def enroll(self):
         if self.is_rewards_member == True:
             print( "Is already a member!" )
         self.is_rewards_member = True
         self.gold_card_points = 200
+        return self
 
     def spend_points(self, amount):
         if self.gold_card_points < amount:
@@ -31,22 +33,14 @@ class User:
             self.gold_card_points = self.gold_card_points - amount
 
 Kelvin = User("Kelvin", "Chan", "kelvin.chan131@gmail.com", 23)
-Kelvin.display_info()
-Kelvin.enroll()
-Kelvin.display_info()
-Kelvin.spend_points(50)
-Kelvin.display_info()
+Kelvin.enroll().spend_points(50)
 
 User2 = User("Jane", "Doe", "janedoe@gmail.com", 24)
-User2.display_info()
-User2.enroll()
-User2.display_info()
-User2.spend_points(80)
+User2.enroll().spend_points(80)
 
 Kelvin.display_info(), User2.display_info()
 
 Kelvin.enroll()
 
 User3 = User("Billy", "Bob", "billybob@gmail.com", 25)
-User3.display_info()
-User3.spend_points(40)
+User3.display_info().spend_points(40)
